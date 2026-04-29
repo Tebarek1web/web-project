@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Şehrim - Roma</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: #ffffff;
+}
+
+
+header {
+    background-color: #f3e8ff;
+    text-align: center;
+    padding: 20px;
+    color: #7c3aed;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+
+section {
+    width: 60%;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+
+h2 {
+    color: #7c3aed;
+    border-bottom: 2px solid #e9d5ff;
+    padding-bottom: 5px;
+}
+
+
+.slider img {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+
+button {
+    margin: 10px;
+    padding: 10px 20px;
+    background-color: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5b21b6;
+}
+
+
+a {
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<header>
+Roma
+</header>
+
+<section>
+
+<h2>Bilgiler</h2>
+<p><b>Ülke:</b> İtalya</p>
+<p><b>Nüfus:</b> 2.8 milyon</p>
+<p><b>Kıta:</b> Avrupa</p>
+
+<h2>Tarihi Önemi</h2>
+<p>
+Roma, Antik Roma İmparatorluğu'nun merkezi olmuştur.
+Kolezyum, Pantheon ve Trevi Çeşmesi gibi yapılar şehrin en önemli sembolleridir.
+</p>
+
+<h2>Gezilecek Yerler</h2>
+<ul>
+<li>Kolezyum</li>
+<li>Pantheon</li>
+<li>Trevi Çeşmesi</li>
+<li>Vatikan</li>
+</ul>
+
+<h2>Fotoğraflar</h2>
+
+<div class="slider">
+<a id="link" target="_blank">
+<img id="image" src="images/roma1.jpg">
+</a>
+</div>
+
+<button onclick="prev()">Önceki</button>
+<button onclick="next()">Sonraki</button>
+
+<br><br>
+
+<a href="index.html">ana sayfaya dön</a>
+
+</section>
+
+<script>
+const slides = [
+    { image: "images/roma1.jpg", link: "https://tr.wikipedia.org/wiki/Kolezyum" },
+    { image: "images/roma2.jpg", link: "https://tr.wikipedia.org/wiki/Pantheon,_Roma" },
+    { image: "images/roma3.jpg", link: "https://tr.wikipedia.org/wiki/Trevi_%C3%87e%C5%9Fmesi" },
+    { image: "images/roma4.jpg", link: "https://tr.wikipedia.org/wiki/Vatikan" }
+];
+
+let i = 0;
+
+function update() {
+    document.getElementById("image").src = slides[i].image;
+    document.getElementById("link").href = slides[i].link;
+}
+
+function next() {
+    i = (i + 1) % slides.length;
+    update();
+}
+
+function prev() {
+    i = (i - 1 + slides.length) % slides.length;
+    update();
+}
+</script>
+
+</body>
+
+</html>
