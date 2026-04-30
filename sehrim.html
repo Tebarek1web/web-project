@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,128 +8,163 @@
 <style>
 body {
     margin: 0;
-    font-family: Arial;
-    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    background-color: #f7f3ff;
+    color: #333;
 }
-
 
 header {
-    background-color: #f3e8ff;
+    background: linear-gradient(135deg, #7c3aed, #c084fc);
+    color: white;
     text-align: center;
-    padding: 20px;
-    color: #7c3aed;
-    font-size: 32px;
-    font-weight: bold;
+    padding: 45px 20px;
 }
 
+header h1 {
+    margin: 0;
+    font-size: 42px;
+}
 
-section {
-    width: 60%;
-    margin: 40px auto;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+.container {
+    width: 75%;
+    margin: 35px auto;
+}
+
+.card {
+    background-color: white;
+    padding: 28px;
+    margin-bottom: 25px;
+    border-radius: 18px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
+}
+
+h2 {
+    color: #7c3aed;
+    margin-bottom: 0;
+    border-bottom: 2px solid #e9d5ff;
+    padding-bottom: 8px;
+}
+
+p {
     line-height: 1.8;
     font-size: 18px;
 }
 
-
-h2 {
-    color: #7c3aed;
-    border-bottom: 2px solid #e9d5ff;
-    padding-bottom: 5px;
+.info p {
+    margin: 8px 0;
 }
 
+ul {
+    line-height: 1.8;
+    font-size: 18px;
+}
 
 .slider img {
     width: 100%;
-    height: 320px;
+    height: 360px;
     object-fit: cover;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
-
 button {
-    margin: 10px;
-    padding: 10px 20px;
+    margin: 12px 6px;
+    padding: 11px 24px;
     background-color: #7c3aed;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 20px;
     cursor: pointer;
+    font-size: 15px;
 }
 
 button:hover {
     background-color: #5b21b6;
 }
 
-
 a {
     color: #7c3aed;
-    text-decoration: none;
     font-weight: bold;
+    text-decoration: none;
+}
+
+.back {
+    display: inline-block;
+    margin-top: 10px;
 }
 </style>
-
 </head>
 
 <body>
 
 <header>
-Roma
+    <h1>Roma</h1>
 </header>
 
-<section>
+<div class="container">
 
-<h2>Bilgiler</h2>
-<p><b>Ülke:</b> İtalya</p>
-<p><b>Nüfus:</b> 2.8 milyon</p>
-<p><b>Kıta:</b> Avrupa</p>
-
-<h2>Tarihi Önemi</h2>
-<p>
-Roma, Antik Roma İmparatorluğu'nun merkezi olmuştur.
-Kolezyum, Pantheon ve Trevi Çeşmesi gibi yapılar şehrin en önemli sembolleridir.
-</p>
-
-<h2>Gezilecek Yerler</h2>
-<ul>
-<li>Kolezyum</li>
-<li>Pantheon</li>
-<li>Trevi Çeşmesi</li>
-<li>Vatikan</li>
-</ul>
-
-<h2>Fotoğraflar</h2>
-
-<div class="slider">
-<a id="link" target="_blank">
-<img id="image" src="images/roma1.jpg">
-</a>
-</div>
-
-<button onclick="prev()">Önceki</button>
-<button onclick="next()">Sonraki</button>
-
-<br><br>
-
-<a href="index.html">ana sayfaya dön</a>
-
+<section class="card info">
+    <h2>Şehir Bilgileri</h2>
+    <p><b>Ülke:</b> İtalya</p>
+    <p><b>Nüfus:</b> Yaklaşık 2.8 milyon</p>
+    <p><b>Kıta:</b> Avrupa</p>
 </section>
+
+<section class="card">
+    <h2>Roma Hakkında</h2>
+    <p>
+        Roma, İtalya'nın başkenti ve dünyanın en önemli tarihi şehirlerinden biridir.
+        Antik Roma İmparatorluğu'nun merkezi olması nedeniyle şehirde çok sayıda tarihi eser bulunmaktadır.
+    </p>
+</section>
+
+<section class="card">
+    <h2>Gezilecek Yerler</h2>
+    <ul>
+        <li>Kolezyum</li>
+        <li>Pantheon</li>
+        <li>Trevi Çeşmesi</li>
+        <li>Vatikan</li>
+        <li>Roma Forumu</li>
+        <li>Navona Meydanı</li>
+        <li>İspanyol Merdivenleri</li>
+        <li>Aziz Petrus Bazilikası</li>
+    </ul>
+</section>
+
+<section class="card">
+    <h2>Fotoğraf</h2>
+
+    <div class="slider">
+        <a id="sliderLink" target="_blank">
+            <img id="sliderImage" src="images/roma1.jpg" alt="Roma fotoğrafı">
+        </a>
+    </div>
+
+    <button onclick="prev()">Önceki</button>
+    <button onclick="next()">Sonraki</button>
+</section>
+
+<a class="back" href="index.html">ana sayfaya dön</a>
+
+</div>
 
 <script>
 const slides = [
     { image: "images/roma1.jpg", link: "https://tr.wikipedia.org/wiki/Kolezyum" },
     { image: "images/roma2.jpg", link: "https://tr.wikipedia.org/wiki/Pantheon,_Roma" },
     { image: "images/roma3.jpg", link: "https://tr.wikipedia.org/wiki/Trevi_%C3%87e%C5%9Fmesi" },
-    { image: "images/roma4.jpg", link: "https://tr.wikipedia.org/wiki/Vatikan" }
+    { image: "images/roma4.jpg", link: "https://tr.wikipedia.org/wiki/Vatikan" },
+    { image: "images/roma5.jpg", link: "https://tr.wikipedia.org/wiki/Roma_Forumu" },
+    { image: "images/roma6.jpg", link: "https://tr.wikipedia.org/wiki/Piazza_Navona" },
+    { image: "images/roma7.jpg", link: "https://tr.wikipedia.org/wiki/%C4%B0spanyol_Merdivenleri" },
+    { image: "images/roma8.jpg", link: "https://tr.wikipedia.org/wiki/Aziz_Petrus_Bazilikas%C4%B1" }
 ];
 
 let i = 0;
 
 function update() {
-    document.getElementById("image").src = slides[i].image;
-    document.getElementById("link").href = slides[i].link;
+    document.getElementById("sliderImage").src = slides[i].image;
+    document.getElementById("sliderLink").href = slides[i].link;
 }
 
 function next() {
@@ -142,8 +176,10 @@ function prev() {
     i = (i - 1 + slides.length) % slides.length;
     update();
 }
+
+update();
+
 </script>
 
 </body>
-
 </html>
