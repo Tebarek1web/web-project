@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,144 +10,121 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background-color: #f7f3ff;
+    background-color: white;
     color: #333;
 }
 
 header {
-    background: linear-gradient(135deg, #7c3aed, #c084fc);
-    color: white;
     text-align: center;
-    padding: 45px 20px;
+    padding: 25px;
+    color: #5b6dcd;
+    font-size: 34px;
+    font-weight: bold;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 42px;
-}
-
-.container {
-    width: 75%;
-    margin: 35px auto;
-}
-
-.card {
-    background-color: white;
-    padding: 28px;
-    margin-bottom: 25px;
-    border-radius: 18px;
-    box-shadow: 0 6px 18px rgba(0,0,0,0.10);
-}
-
-h2 {
-    color: #7c3aed;
-    margin-bottom: 0;
-    border-bottom: 2px solid #e9d5ff;
-    padding-bottom: 8px;
-}
-
-p {
-    line-height: 1.8;
-    font-size: 18px;
-}
-
-.info p {
-    margin: 8px 0;
-}
-
-ul {
-    line-height: 1.8;
-    font-size: 18px;
+.slider {
+    width: 80%;
+    margin: 20px auto 10px auto;
+    text-align: center;
 }
 
 .slider img {
     width: 100%;
-    height: 360px;
+    height: 380px;
     object-fit: cover;
-    border-radius: 15px;
+    border-radius: 12px;
+}
+
+.buttons {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 button {
-    margin: 12px 6px;
-    padding: 11px 24px;
-    background-color: #7c3aed;
+    margin: 8px;
+    padding: 10px 25px;
+    background-color: #5b6dcd;
     color: white;
     border: none;
     border-radius: 20px;
     cursor: pointer;
-    font-size: 15px;
 }
 
 button:hover {
-    background-color: #5b21b6;
+    background-color: #4c1d95;
+}
+
+section {
+    width: 70%;
+    margin: 20px auto;
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+h2 {
+    color: #5b6dcd;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
 }
 
 a {
-    color: #7c3aed;
-    font-weight: bold;
+    color: #5b6dcd;
     text-decoration: none;
-}
-
-.back {
-    display: inline-block;
-    margin-top: 10px;
+    font-weight: bold;
 }
 </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Roma</h1>
-</header>
+<header>Roma</header>
 
-<div class="container">
+<div class="slider">
+    <a id="sliderLink" href="https://tr.wikipedia.org/wiki/Kolezyum" target="_blank">
+        <img id="sliderImage" src="images/roma1.jpg" alt="Roma">
+    </a>
+</div>
 
-<section class="card info">
-    <h2>Şehir Bilgileri</h2>
-    <p><b>Ülke:</b> İtalya</p>
-    <p><b>Nüfus:</b> Yaklaşık 2.8 milyon</p>
-    <p><b>Kıta:</b> Avrupa</p>
-</section>
-
-<section class="card">
-    <h2>Roma Hakkında</h2>
-    <p>
-        Roma, İtalya'nın başkenti ve dünyanın en önemli tarihi şehirlerinden biridir.
-        Antik Roma İmparatorluğu'nun merkezi olması nedeniyle şehirde çok sayıda tarihi eser bulunmaktadır.
-    </p>
-</section>
-
-<section class="card">
-    <h2>Gezilecek Yerler</h2>
-    <ul>
-        <li>Kolezyum</li>
-        <li>Pantheon</li>
-        <li>Trevi Çeşmesi</li>
-        <li>Vatikan</li>
-        <li>Roma Forumu</li>
-        <li>Navona Meydanı</li>
-        <li>İspanyol Merdivenleri</li>
-        <li>Aziz Petrus Bazilikası</li>
-    </ul>
-</section>
-
-<section class="card">
-    <h2>Fotoğraf</h2>
-
-    <div class="slider">
-        <a id="sliderLink" target="_blank">
-            <img id="sliderImage" src="images/roma1.jpg" alt="Roma fotoğrafı">
-        </a>
-    </div>
-
+<div class="buttons">
     <button onclick="prev()">Önceki</button>
     <button onclick="next()">Sonraki</button>
-</section>
-
-<a class="back" href="index.html">ana sayfaya dön</a>
-
 </div>
+
+<section>
+
+<article>
+<h2>Roma Hakkında</h2>
+<p>
+Roma, İtalya'nın başkenti ve en önemli tarihi şehirlerinden biridir.
+Yaklaşık 2.8 milyon nüfusa sahiptir.
+</p>
+</article>
+
+<article>
+<h2>Tarihi Önemi</h2>
+<p>
+Roma, Antik Roma İmparatorluğu'nun merkezi olmuştur.
+Kolezyum, Pantheon ve Trevi Çeşmesi gibi yapılar şehrin en önemli sembolleridir.
+</p>
+</article>
+
+<article>
+<h2>Gezilecek Yerler</h2>
+<ul>
+    <li>Kolezyum</li>
+    <li>Pantheon</li>
+    <li>Trevi Çeşmesi</li>
+    <li>Vatikan</li>
+    <li>Roma Forumu</li>
+    <li>Navona Meydanı</li>
+    <li>İspanyol Merdivenleri</li>
+    <li>Aziz Petrus Bazilikası</li>
+</ul>
+</article>
+
+<a href="index.html">ana sayfaya dön</a>
+
+</section>
 
 <script>
 const slides = [
@@ -176,10 +154,8 @@ function prev() {
     i = (i - 1 + slides.length) % slides.length;
     update();
 }
-
-update();
-
 </script>
 
 </body>
+
 </html>
