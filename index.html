@@ -1,61 +1,302 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
-<meta charset="UTF-8">
-<title>Web Project</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tebarek Şırgat – Ana Sayfa</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-dark:  #4c1d95;
+      --purple-main:  #7c3aed;
+      --purple-light: #ede9fe;
+      --purple-pale:  #f5f3ff;
+      --text-dark:    #1e1b2e;
+      --text-mid:     #4b4567;
+      --text-light:   #7c6fa0;
+      --white:        #ffffff;
+      --radius:       12px;
+      --shadow:       0 4px 24px rgba(124, 58, 237, 0.12);
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    text-align: center;
-    margin-top: 100px;
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-h1 {
-    color: #5b6dcd;
-    font-weight: normal;
-}
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--purple-pale);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 2px solid var(--purple-light);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(124,58,237,0.07);
+    }
 
-nav {
-    margin-top: 25px;
-}
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--purple-main);
+      text-decoration: none;
+    }
 
-nav a {
-    margin: 15px;
-    text-decoration: none;
-    color: #5b6dcd;
-    font-size: 18px;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
 
-nav a:hover {
-    text-decoration: underline;
-}
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
 
+    nav ul li a:hover { color: var(--purple-main); }
 
-.container {
-    margin-top: 20px;
-}
-</style>
+    nav ul li a.login-btn {
+      background: var(--purple-main);
+      color: var(--white);
+      padding: 8px 18px;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    nav ul li a.login-btn:hover {
+      background: var(--purple-dark);
+      color: var(--white);
+    }
+
+    /* ── MAIN ── */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px 80px;
+    }
+
+    /* ── HERO ── */
+    .hero-text {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .hero-avatar {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple-main), #a855f7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--white);
+      margin: 0 auto 24px;
+      box-shadow: 0 8px 32px rgba(124,58,237,0.25);
+    }
+
+    .hero-text h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      color: var(--purple-dark);
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      font-weight: 300;
+      margin-bottom: 20px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple-main), var(--purple-light));
+      border-radius: 2px;
+      margin: 0 auto;
+    }
+
+    /* ── CARD GRID: 2 sütun yan yana ── */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      width: 100%;
+      max-width: 780px;
+    }
+
+    .menu-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 26px 28px;
+      text-decoration: none;
+      color: var(--text-dark);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      border: 2px solid transparent;
+      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+    }
+
+    .menu-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 36px rgba(124,58,237,0.18);
+      border-color: var(--purple-light);
+    }
+
+    .card-badge {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--purple-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--purple-dark);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      color: var(--purple-dark);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .card-desc {
+      font-size: 0.84rem;
+      color: var(--text-light);
+      line-height: 1.5;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 26px;
+      background: var(--white);
+      color: var(--text-light);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--purple-light);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 620px) {
+      nav { padding: 12px 18px; }
+      nav ul { gap: 10px; }
+      nav ul li a { font-size: 0.82rem; }
+      .menu-grid { grid-template-columns: 1fr; }
+      .hero-text h1 { font-size: 2rem; }
+    }
+  </style>
 </head>
 
 <body>
 
-<h1>Hoş Geldiniz</h1>
+  <!-- NAVİGASYON -->
+  <nav>
+    <a href="index.html" class="logo">T.Ş.</a>
+    <ul>
+      <li><a href="hakkimda.html">Hakkımda</a></li>
+      <li><a href="cv.html">CV</a></li>
+      <li><a href="sehrim.html">Şehrim</a></li>
+      <li><a href="mirasimiz.html">Mirasımız</a></li>
+      <li><a href="ilgialanlarim.html">İlgi Alanlarım</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+      <li><a href="login.html" class="login-btn">Giriş Yap</a></li>
+    </ul>
+  </nav>
 
-<div class="container">
+  <main>
 
-<nav>
-    <a href="hakkimda.html">Hakkımda</a>
-    <a href="cv.html">CV</a>
-    <a href="sehrim.html">Şehrim</a>
-    <a href="mirasimiz.html">Mirasımız</a>
-    <a href="iletisim.html">İletişim</a>
-    <a href="login.html">Login</a>
-</nav>
+    <!-- HERO -->
+    <header class="hero-text">
+      <div class="hero-avatar">T.Ş.</div>
+      <h1>Tebarek Şırgat</h1>
+      <p>Sakarya Üniversitesi – Bilgisayar Mühendisliği</p>
+      <div class="divider"></div>
+    </header>
 
-</div>
+    <!-- KARTLAR -->
+    <section class="menu-grid" aria-label="Sayfa Menüsü">
+
+      <a href="hakkimda.html" class="menu-card">
+        <div class="card-badge">H</div>
+        <div>
+          <div class="card-title">Hakkımda</div>
+          <div class="card-desc">Kişisel bilgiler, hobiler ve tanıtım videosu</div>
+        </div>
+      </a>
+
+      <a href="cv.html" class="menu-card">
+        <div class="card-badge">CV</div>
+        <div>
+          <div class="card-title">Özgeçmiş (CV)</div>
+          <div class="card-desc">Eğitim, yetenekler ve dil becerileri</div>
+        </div>
+      </a>
+
+      <a href="sehrim.html" class="menu-card">
+        <div class="card-badge">Ş</div>
+        <div>
+          <div class="card-title">Şehrim</div>
+          <div class="card-desc">Memleketim hakkında bilgiler ve görsel slider</div>
+        </div>
+      </a>
+
+      <a href="mirasimiz.html" class="menu-card">
+        <div class="card-badge">M</div>
+        <div>
+          <div class="card-title">Mirasımız</div>
+          <div class="card-desc">Kültürel miras ve tarihi eserler</div>
+        </div>
+      </a>
+
+      <a href="ilgialanlarim.html" class="menu-card">
+        <div class="card-badge">İA</div>
+        <div>
+          <div class="card-title">İlgi Alanlarım</div>
+          <div class="card-desc">API entegrasyonu ile güncel içerikler</div>
+        </div>
+      </a>
+
+      <a href="iletisim.html" class="menu-card">
+        <div class="card-badge">İ</div>
+        <div>
+          <div class="card-title">İletişim</div>
+          <div class="card-desc">Bana ulaşmak için iletişim formu</div>
+        </div>
+      </a>
+
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Tebarek Şırgat &mdash; Sakarya Üniversitesi, Bilgisayar Mühendisliği</p>
+  </footer>
 
 </body>
 </html>

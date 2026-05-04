@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background-color: white;
+}
+
+header {
+    background-color: #f3e8ff;
+    text-align: center;
+    padding: 20px;
+    color: #7c3aed;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+form {
+    width: 350px;
+    margin: 50px auto;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+label {
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 6px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #7c3aed;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #5b21b6;
+}
+
+#error {
+    color: red;
+    text-align: center;
+}
+
+a {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #7c3aed;
+    text-decoration: none;
+    font-weight: bold;
+}
+</style>
+</head>
+
+<body>
+
+<header>Login</header>
+
+<form onsubmit="return loginKontrol()">
+
+<label>Kullanıcı Adı</label>
+<input type="text" id="username" placeholder="b2412100001@sakarya.edu.tr">
+
+<label>Şifre</label>
+<input type="password" id="password" placeholder="Öğrenci numarası">
+
+<p id="error"></p>
+
+<button type="submit">Giriş Yap</button>
+
+</form>
+
+<a href="index.html">ana sayfaya dön</a>
+
+<script>
+function loginKontrol() {
+    let username = document.getElementById("username").value;
+    let password = document.getElementById("password").value;
+    let error = document.getElementById("error");
+
+    let ogrenciNo = "b251210562";
+    let dogruKullanici = ogrenciNo + "@sakarya.edu.tr";
+
+    if (username === "" || password === "") {
+        error.innerText = "Lütfen tüm alanları doldurun.";
+        return false;
+    }
+
+    if (username === dogruKullanici && password === ogrenciNo) {
+        alert("Hoşgeldiniz " + ogrenciNo);
+        window.location.href = "index.html";
+        return false;
+    } else {
+        error.innerText = "Kullanıcı adı veya şifre hatalı.";
+        return false;
+    }
+}
+</script>
+
+</body>
+</html>

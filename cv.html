@@ -2,112 +2,445 @@
 <html lang="tr">
 
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CV</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CV – Tebarek Şırgat</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --purple-dark:  #4c1d95;
+      --purple-main:  #7c3aed;
+      --purple-light: #ede9fe;
+      --purple-pale:  #f5f3ff;
+      --text-dark:    #1e1b2e;
+      --text-mid:     #4b4567;
+      --text-light:   #7c6fa0;
+      --white:        #ffffff;
+      --radius:       12px;
+      --shadow:       0 4px 24px rgba(124, 58, 237, 0.10);
+    }
 
-<style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background-color: #ffffff;
-}
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-header {
-    background-color: #f3e8ff;
-    text-align: center;
-    padding: 20px;
-    color: #7c3aed;
-    font-size: 32px;
-    font-weight: bold;
-}
+    body {
+      font-family: 'Lato', sans-serif;
+      background-color: var(--purple-pale);
+      color: var(--text-dark);
+      line-height: 1.75;
+    }
 
-section {
-    width: 60%;
-    margin: 40px auto;
-    background-color: #faf5ff;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    line-height: 1.8;
-    font-size: 18px;
-}
+    /* ── NAV ── */
+    nav {
+      background: var(--white);
+      border-bottom: 2px solid var(--purple-light);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(124,58,237,0.07);
+    }
 
-article {
-    margin-bottom: 25px;
-}
+    nav .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--purple-main);
+      text-decoration: none;
+    }
 
-h2 {
-    color: #7c3aed;
-    border-bottom: 2px solid #e9d5ff;
-    padding-bottom: 5px;
-}
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 28px;
+    }
 
-a {
-    color: #7c3aed;
-    text-decoration: none;
-    font-weight: bold;
-}
+    nav ul li a {
+      text-decoration: none;
+      color: var(--text-mid);
+      font-weight: 700;
+      font-size: 0.95rem;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
 
-a:hover {
-    color: #9333ea;
-}
-</style>
+    nav ul li a:hover,
+    nav ul li a.active {
+      color: var(--purple-main);
+    }
 
+    /* ── MAIN ── */
+    main {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 50px 20px 80px;
+    }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.6rem;
+      color: var(--purple-dark);
+      margin-bottom: 10px;
+    }
+
+    .page-header p.subtitle {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      font-weight: 300;
+    }
+
+    .divider {
+      width: 60px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--purple-main), var(--purple-light));
+      border-radius: 2px;
+      margin: 16px auto 0;
+    }
+
+    /* ── CV CARD ── */
+    .cv-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 36px 40px;
+      margin-bottom: 28px;
+    }
+
+    .cv-card h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--purple-dark);
+      margin-bottom: 18px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--purple-light);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cv-card h2::before {
+      content: '';
+      display: inline-block;
+      width: 5px;
+      height: 22px;
+      background: var(--purple-main);
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    /* ── INFO GRID ── */
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 32px;
+    }
+
+    .info-item .label {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 2px;
+    }
+
+    .info-item .value {
+      font-size: 1rem;
+      color: var(--text-dark);
+    }
+
+    /* ── EĞİTİM ── */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--purple-light);
+    }
+
+    .edu-item:last-child { border-bottom: none; }
+
+    .edu-item .edu-title {
+      font-weight: 700;
+      color: var(--text-dark);
+      font-size: 1rem;
+    }
+
+    .edu-item .edu-sub {
+      color: var(--text-light);
+      font-size: 0.9rem;
+      margin-top: 3px;
+    }
+
+    .edu-item .edu-date {
+      color: var(--purple-main);
+      font-size: 0.85rem;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    /* ── YETENEK TAGS ── */
+    .tag-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .tag-list li {
+      background: var(--purple-light);
+      color: var(--purple-dark);
+      padding: 7px 18px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    /* ── DİL BARS ── */
+    .lang-item {
+      margin-bottom: 14px;
+    }
+
+    .lang-item:last-child { margin-bottom: 0; }
+
+    .lang-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 6px;
+    }
+
+    .lang-bar {
+      height: 8px;
+      background: var(--purple-light);
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .lang-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--purple-main), #a855f7);
+      border-radius: 999px;
+    }
+
+    /* ── GITHUB LİNK ── */
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--purple-main);
+      color: var(--white);
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .github-link:hover {
+      background: var(--purple-dark);
+      transform: translateY(-2px);
+    }
+
+    /* ── BACK LINK ── */
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--purple-main);
+      border: 2px solid var(--purple-main);
+      padding: 11px 26px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-top: 10px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .back-link:hover {
+      background: var(--purple-main);
+      color: var(--white);
+    }
+
+    .btn-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 28px;
+      background: var(--white);
+      color: var(--text-light);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--purple-light);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      nav { padding: 12px 18px; }
+      nav ul { gap: 12px; }
+      .cv-card { padding: 24px 18px; }
+      .info-grid { grid-template-columns: 1fr; }
+      .page-header h1 { font-size: 2rem; }
+      .edu-item { flex-direction: column; gap: 4px; }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-CV
-</header>
+  <!-- NAVİGASYON -->
+  <nav>
+    <a href="index.html" class="logo">T.Ş.</a>
+    <ul>
+      <li><a href="hakkimda.html">Hakkımda</a></li>
+      <li><a href="cv.html" class="active">CV</a></li>
+      <li><a href="sehrim.html">Şehrim</a></li>
+      <li><a href="mirasimiz.html">Mirasımız</a></li>
+      <li><a href="ilgialanlarim.html">İlgi Alanlarım</a></li>
+      <li><a href="iletisim.html">İletişim</a></li>
+    </ul>
+  </nav>
 
-<section>
+  <main>
 
-<article>
-<h2>Kişisel Bilgiler</h2>
-<p><b>Ad Soyad:</b> Tebarek Şırgat</p>
-<p><b>Üniversite:</b> Sakarya Üniversitesi</p>
-<p><b>Bölüm:</b> Bilgisayar Mühendisliği</p>
-</article>
+    <!-- SAYFA BAŞLIĞI -->
+    <header class="page-header">
+      <h1>Özgeçmiş (CV)</h1>
+      <p class="subtitle">Tebarek Şırgat</p>
+      <div class="divider"></div>
+    </header>
 
-<article>
-<h2>Eğitim Bilgileri</h2>
-<p>Sakarya Üniversitesi - Bilgisayar Mühendisliği</p>
-</article>
+    <!-- KİŞİSEL BİLGİLER -->
+    <section aria-label="Kişisel Bilgiler">
+      <article class="cv-card">
+        <h2>Kişisel Bilgiler</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <span class="label">Ad Soyad</span>
+            <span class="value">Tebarek Şırgat</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Üniversite</span>
+            <span class="value">Sakarya Üniversitesi</span>
+          </div>
+          <div class="info-item">
+            <span class="label">Bölüm</span>
+            <span class="value">Bilgisayar Mühendisliği</span>
+          </div>
+          <div class="info-item">
+            <span class="label">E-posta</span>
+            <span class="value">tebarek.sirgat@ogr.sakarya.edu.tr</span>
+          </div>
+        </div>
+      </article>
+    </section>
 
-<article>
-<h2>Yetenekler</h2>
-<ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>C++</li>
-    <li>C#</li>
-    <li>JavaScript</li>
-</ul>
-</article>
+    <!-- EĞİTİM -->
+    <section aria-label="Eğitim Bilgileri">
+      <article class="cv-card">
+        <h2>Eğitim Bilgileri</h2>
 
-<article>
-<h2>Diller</h2>
-<ul>
-    <li>Türkçe</li>
-    <li>Arapça</li>
-</ul>
-</article>
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Bilgisayar Mühendisliği – Lisans</div>
+            <div class="edu-sub">Sakarya Üniversitesi</div>
+          </div>
+          <span class="edu-date">2025 – Devam ediyor</span>
+        </div>
 
-<article>
-<h2>GitHub</h2>
-<p><b>GitHub:</b>
-<a href="https://github.com/Tebarek1web" target="_blank">
-github.com/Tebarek1web
-</a>
-</p>
-</article>
+        <div class="edu-item">
+          <div>
+            <div class="edu-title">Lise</div>
+            <div class="edu-sub">— Halit Evin Kız Anadolu İmam Hatip Lisesi —</div>
+          </div>
+          <span class="edu-date">2020 – 2024</span>
+        </div>
 
-<a href="index.html">Ana Sayfaya Dön</a>
+      </article>
+    </section>
 
-</section>
+    <!-- YETENEKLER -->
+    <section aria-label="Yetenekler">
+      <article class="cv-card">
+        <h2>Yetenekler</h2>
+        <ul class="tag-list">
+          <li>HTML5</li>
+          <li>CSS3</li>
+          <li>JavaScript</li>
+          <li>C++</li>
+          <li>C#</li>
+          <li>PHP</li>
+          <li>kitap okuma </li>
+          <li>yüzme</li>
+        </ul>
+      </article>
+    </section>
+
+    <!-- DİLLER -->
+    <section aria-label="Dil Becerileri">
+      <article class="cv-card">
+        <h2>Dil Becerileri</h2>
+
+        <div class="lang-item">
+          <div class="lang-header">
+            <span>Arapça</span>
+            <span>Anadil</span>
+          </div>
+          <div class="lang-bar">
+            <div class="lang-bar-fill" style="width: 100%;"></div>
+          </div>
+        </div>
+
+        <div class="lang-item">
+          <div class="lang-header">
+            <span>Türkçe</span>
+            <span>İleri Seviye</span>
+          </div>
+          <div class="lang-bar">
+            <div class="lang-bar-fill" style="width: 85%;"></div>
+          </div>
+        </div>
+
+      </article>
+    </section>
+
+    <!-- GITHUB & GERİ -->
+    <div class="btn-row">
+      <a
+        href="https://github.com/Tebarek1web"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github-link"
+      >
+        ⬡ GitHub Profilim
+      </a>
+      <a href="index.html" class="back-link">← Ana Sayfaya Dön</a>
+    </div>
+
+  </main>
+
+  <footer>
+    <p> 2025 Tebarek Şırgat &mdash; Sakarya Üniversitesi, Bilgisayar Mühendisliği</p>
+  </footer>
 
 </body>
-
 </html>
