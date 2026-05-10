@@ -1,7 +1,13 @@
 <?php
+
 $ad = $_POST["ad"];
+$cinsiyet = $_POST["cinsiyet"];
 $email = $_POST["email"];
+$telefon = $_POST["telefon"];
+$konu = $_POST["konu"];
+$onay = isset($_POST["onay"]) ? $_POST["onay"] : "Onay verilmedi";
 $mesaj = $_POST["mesaj"];
+
 ?>
 
 <!DOCTYPE html>
@@ -9,53 +15,25 @@ $mesaj = $_POST["mesaj"];
 <head>
 <meta charset="UTF-8">
 <title>Gönderilen Bilgiler</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="iletişim.css">
 
-<style>
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f5f3ff;
-    text-align: center;
-    padding-top: 90px;
-}
-
-.box {
-    width: 430px;
-    margin: auto;
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-h2 {
-    color: #7c3aed;
-}
-
-p {
-    font-size: 18px;
-    color: #222;
-}
-
-a {
-    color: #7c3aed;
-    text-decoration: none;
-    font-weight: bold;
-}
-</style>
 </head>
 
 <body>
 
 <div class="box">
+
     <h2>Gönderilen Bilgiler</h2>
 
     <p><b>Ad Soyad:</b> <?php echo $ad; ?></p>
+    <p><b>Cinsiyet:</b> <?php echo $cinsiyet; ?></p>
     <p><b>Email:</b> <?php echo $email; ?></p>
+    <p><b>Telefon:</b> <?php echo $telefon; ?></p>
+    <p><b>Konu:</b> <?php echo $konu; ?></p>
+    <p><b>Onay:</b> <?php echo $onay; ?></p>
     <p><b>Mesaj:</b> <?php echo $mesaj; ?></p>
 
     <br>
-    <a href="iletisim.html">Geri Dön</a>
-</div>
 
-</body>
-</html>
+    <a href="iletisim.html">Geri Dön</
