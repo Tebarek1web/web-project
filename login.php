@@ -23,10 +23,11 @@ $dogruEmail = "tebarek.sirgat@ogr.sakarya.edu.tr";
 
 <?php
 
-if($username == $dogruEmail && preg_match("/^b[0-9]+$/", $password)){
+if($username == $dogruEmail && preg_match("/^b[0-9]{9}$/", $password)){
 
     echo "<h1>Hoşgeldiniz</h1>";
-    echo "<p>Giriş başarılı.</p>";
+    echo "<p>Öğrenci No: " . $password . "</p>";
+    echo "<a href='login.html'>Geri Dön</a> ";
     echo "<a href='index.html'>Ana Sayfaya Git</a>";
 
 }else{

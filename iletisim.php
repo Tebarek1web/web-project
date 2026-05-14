@@ -36,4 +36,4 @@ $mesaj = $_POST["mesaj"];
 
     <br>
 
-    <a href="iletisim.html">Geri Dön</
+    <a href="iletisim.html">Geri Dön</a>
